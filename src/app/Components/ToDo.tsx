@@ -1,44 +1,44 @@
-// getAllGroupMembers= async(groupId:string)=>{
-  //   const token = await getStorageData("token");
-  //   const header = {
-  //     "Content-Type": configJSON.apiContentType,
-  //     token,
-  //   };
+getAllGroupMembers= async(groupId:string)=>{
+    const token = await getStorageData("token");
+    const header = {
+      "Content-Type": configJSON.apiContentType,
+      token,
+    };
 
-  //   const requestMessage = new Message(
-  //     getName(MessageEnum.RestAPIRequestMessage)
-  //   );
+    const requestMessage = new Message(
+      getName(MessageEnum.RestAPIRequestMessage)
+    );
 
-  //   this.getGroupMemberApiCallId = requestMessage.messageId;
+    this.getGroupMemberApiCallId = requestMessage.messageId;
 
-  //   requestMessage.addData(
-  //     getName(MessageEnum.RestAPIResponceEndPointMessage),
-  //     `${configJSON.groupMemberApiEndPoint}=${groupId}`
-  //   );
-  //   requestMessage.addData(
-  //     getName(MessageEnum.RestAPIRequestHeaderMessage),
-  //     JSON.stringify(header)
-  //   );
+    requestMessage.addData(
+      getName(MessageEnum.RestAPIResponceEndPointMessage),
+      `${configJSON.groupMemberApiEndPoint}=${groupId}`
+    );
+    requestMessage.addData(
+      getName(MessageEnum.RestAPIRequestHeaderMessage),
+      JSON.stringify(header)
+    );
 
-  //   requestMessage.addData(
-  //     getName(MessageEnum.RestAPIRequestMethodMessage),
-  //     configJSON.apiMethodGET
-  //   );
+    requestMessage.addData(
+      getName(MessageEnum.RestAPIRequestMethodMessage),
+      configJSON.apiMethodGET
+    );
 
-  //   runEngine.sendMessage(requestMessage.id, requestMessage);
-  //   return true
-  // }
-
-
+    runEngine.sendMessage(requestMessage.id, requestMessage);
+    return true
+  }
 
 
-  // handleGroupMemberResponse=(responseJson:{data:GroupMemberData[]},apiRequestCallId:string)=>{
-  //   if(apiRequestCallId === this.getGroupMemberApiCallId){
-  //     if(responseJson && responseJson.data){
 
-  //     }
-  //   }
-  // }
+
+  handleGroupMemberResponse=(responseJson:{data:GroupMemberData[]},apiRequestCallId:string)=>{
+    if(apiRequestCallId === this.getGroupMemberApiCallId){
+      if(responseJson && responseJson.data){
+
+      }
+    }
+  }
 
 
   export interface GroupMemberData{
